@@ -2,6 +2,9 @@
 
 ### Requirements
 Developed using Python 3. 
+Working AWS credentials should be available in the system 
+e.g. `for mac, in ~/.aws/credentials`
+
 Install required python modules with  
 ```
 pip3 install requirements.txt
