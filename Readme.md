@@ -28,7 +28,7 @@ What the script does
 5.  Create external tables in AWS Athena to enable querying of the data - `ped_loc_data` and `sensor_locations`. The Athena queries take about 17 mins to complete, after which the data can be queried through Athena
 
 ```
-python process_sensor_data.py
+python3 process_sensor_data.py
 
 # Testing
 pytest tests.py
