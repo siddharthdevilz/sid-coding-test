@@ -2,12 +2,13 @@
 
 ### Requirements
 Developed using Python 3. 
-Working AWS credentials should be available in the system 
+Working AWS credentials should be provided in the system 
+The AWS account would need permissions to read/write to S3 and start Athena jobs/queries (athena:StartQueryExecution)
 e.g. `for mac, in ~/.aws/credentials`
 
 Install required python modules with  
 ```
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Files included
@@ -25,7 +26,7 @@ What the script does
 2.  Load the data files in to pandas dataframes
 3.  Process the dataframes to extract the required Top 10 sensor locations by day and month by pedestrian count and writes them to local files `topn_by_day_loc.csv` and `topn_by_month_loc.csv`
 4.  Write the original data to S3 in parquet format for future querying. The original downloaded data was ~ 370MB, while the parquet files written to S3 are about 70MB
-5.  Create external tables in AWS Athena to enable querying of the data - `ped_loc_data` and `sensor_locations`. The Athena queries take about 17 mins to complete, after which the data can be queried through Athena
+5.  Create external tables in AWS Athena to enable querying of the data - `ped_loc_data` and `sensor_locations`. The Athena queries take about 17 mins to complete, after which the data can be queried through Athena. These external tables is Athena refer to the data in S3 written in Step 4 above.
 
 ```
 python3 process_sensor_data.py
